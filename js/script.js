@@ -1,34 +1,34 @@
+'use strict';
+
 document.addEventListener('DOMContentLoaded', function () {
-	// Place for rest code of Trello
 
 	// Generation an ID for every card to eliminate duplicate
 	function randomString() {
-		var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
-		var str = '';
-		for (var i = 0; i < 10; i++) {
-			str += chars[Math.floor(Math.random() * chars.length)];
-		}
-		return str;
+    	var chars = '0123456789abcdefghiklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXTZ';
+	    var str = '';
+	    for (var i = 0; i < 10; i++) {
+	        str += chars[Math.floor(Math.random() * chars.length)];
+	    }
+	    return str;
 	}
 
 	// Generate templates
 	function generateTemplate(name, data, basicElement) {
-		var template = document.getElementById(name).innerHTML;
-		var element = document.createElement(basicElement || 'div');
+	  var template = document.getElementById(name).innerHTML;
+	  var element = document.createElement(basicElement || 'div');
 
-		Mustache.parse(template);
-		element.innerHTML = Mustache.render(template, data);
+	  Mustache.parse(template);
+	  element.innerHTML = Mustache.render(template, data);
 
-		return element;
+	  return element;
 	}
-
 	// Column Class
 	function Column(name) {
 		var self = this;
 
 		this.id = randomString();
 		this.name = name;
-		this.element = generateTemplate('column-template', { name: this:name });
+		this.element = generateTemplate('column-template', { name: this.name, id: this.id });
 
 		this.element.querySelector('.column').addEventListener('click', function (event) {
 			if (event.target.classList.contains('btn-delete')) {
@@ -77,16 +77,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Object of board
 	var board = {
-		name: 'Trello board',
-		addColumn: function(column) {
-			this.element.appendChild(column.element);
-			initSortable(column.id);
-		},
-		element: document.querySelector('#board .column-container');
-	}
+	    name: 'Kanban Board',
+	    addColumn: function(column) {
+	      this.element.appendChild(column.element);
+	      initSortable(column.id);
+	    },
+	    element: document.querySelector('#board .column-container')
+	};
 
 	// Initializig Sortablejs librares to add functions Drag'n'Drop
-	function initDortable(id) {
+	function initSortable(id) {
 		var el = document.getElementById(id);
 		var sortable = Sortable.create(el, {
 			group: 'trello',
@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	// Creating Columns
-	var todoColumn = new Column('Do zrobienia');
-	var doingColumn = new Column('Realizowane');
-	var doneColumn = new Column('Zakończone');
+	var todoColumn = new Column('To do');
+	var doingColumn = new Column('Doing');
+	var doneColumn = new Column('Done');
 
 	// Adding Columnt to the board
 	board.addColumn(todoColumn);
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Creating templates Cards
 	var card1 = new Card('New task');
-	var card2 = new Card('Create trello boards');
+	var card2 = new Card('Create kanban boards');
 
 	// Adding Cards to Columns
 	todoColumn.addCard(card1);
