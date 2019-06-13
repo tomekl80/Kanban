@@ -65,6 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (event.target.classList.contains('btn-delete')) {
 				self.removeCard();
 			}
-		})
+		});
+	}
+
+	// Methods for Card
+	Card.prototype = {
+		removeCard: function () {
+			this.element.parentNode.removeChild(this.element);
+		}
 	}
 })
