@@ -74,4 +74,14 @@ document.addEventListener('DOMContentLoaded', function () {
 			this.element.parentNode.removeChild(this.element);
 		}
 	}
+
+	// Object of board
+	var board = {
+		name: 'Trello board',
+		addColumn: function(column) {
+			this.element.appendChild(column.element);
+			initSortable(column.id);
+		},
+		element: document.querySelector('#board .column-container');
+	}
 })
