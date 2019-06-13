@@ -93,4 +93,29 @@ document.addEventListener('DOMContentLoaded', function () {
 			sort: true
 		});
 	}
+
+	// addEventListener to create new column
+	document.querySelector('#board .create-column').addEventListener('click', function() {
+		var name = prompt('Wprowadź nazwę kolumny');
+		var column = new Column(name);
+		board.addColumn(column);
+	});
+
+	// Creating Columns
+	var todoColumn = new Column('Do zrobienia');
+	var doingColumn = new Column('Realizowane');
+	var doneColumn = new Column('Zakończone');
+
+	// Adding Columnt to the board
+	board.addColumn(todoColumn);
+	board.addColumn(doingColumn);
+	board.addColumn(doneColumn);
+
+	// Creating templates Cards
+	var card1 = new Card('New task');
+	var card2 = new Card('Create trello boards');
+
+	// Adding Cards to Columns
+	todoColumn.addCard(card1);
+	doingColumn.addCard(card2);
 })
