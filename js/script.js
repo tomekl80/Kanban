@@ -58,5 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		this.id = randomString();
 		this.description = description;
 		this.element = generateTemplate('card-template', { description: this.description }, 'li');
+
+		this.element.querySelector('.card').addEventListener('click', function (event) {
+			event.stopPropagation();
+
+			if (event.target.classList.contains('btn-delete')) {
+				self.removeCard();
+			}
+		})
 	}
 })
