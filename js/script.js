@@ -84,4 +84,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		},
 		element: document.querySelector('#board .column-container');
 	}
+
+	// Initializig Sortablejs librares to add functions Drag'n'Drop
+	function initDortable(id) {
+		var el = document.getElementById(id);
+		var sortable = Sortable.create(el, {
+			group: 'trello',
+			sort: true
+		});
+	}
 })
