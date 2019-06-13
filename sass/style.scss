@@ -1,0 +1,37 @@
+$fonts: Roboto;
+
+* {
+	box-sizing: border-box;
+}
+
+.board {
+	background: #4BBF6B;
+	h1 {
+		font: 18px 700 $fonts;
+		line-height: 32px;
+		padding: 0 8px 0 12px;
+		color: white;
+	}
+	.column-container {
+		background: white;
+		.column {
+			.card-description {
+				font-size: 14px 400 $fonts;
+				line-height: 20px;
+				padding: 6px 8px 2px 8px;
+				background: #FFFFFF;
+				border-radius: 5px;
+			}
+		}
+	}
+}
+
+.column {
+	background: #DFE1E6;
+	h2 {
+		font: 14px 400 $fonts;
+		line-height: 20px;
+		color: black;
+		border-radius: 5px;
+	}
+}

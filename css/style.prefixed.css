@@ -1,0 +1,13 @@
+* { box-sizing: border-box; }
+
+.board { background: #4BBF6B; }
+
+.board h1 { font: 18px 700 Roboto; line-height: 32px; padding: 0 8px 0 12px; color: white; }
+
+.board .column-container { background: white; }
+
+.board .column-container .column .card-description { font-size: 14px 400 Roboto; line-height: 20px; padding: 6px 8px 2px 8px; background: #FFFFFF; border-radius: 5px; }
+
+.column { background: #DFE1E6; }
+
+.column h2 { font: 14px 400 Roboto; line-height: 20px; color: black; border-radius: 5px; }
