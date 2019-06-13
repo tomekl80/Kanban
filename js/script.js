@@ -50,4 +50,13 @@ document.addEventListener('DOMContentLoaded', function () {
 			this.element.parentNode.removeChild(this.element);
 		}
 	};
+
+	// Card class
+	function Card(description) {
+		var self = this;
+
+		this.id = randomString();
+		this.description = description;
+		this.element = generateTemplate('card-template', { description: this.description }, 'li');
+	}
 })
