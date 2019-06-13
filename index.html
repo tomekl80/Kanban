@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta >
 	<title>Trello</title>
 	<link rel="stylesheet" type="text/css" href="style.prefixed.css">
 </head>
@@ -11,7 +12,8 @@
 		<button class="create-column">Dodaj kolumnę</button>
 		<div class="column-caontainer"></div>
 	</div>
-	
+	<!-- Mustache script -->
+	<script type="text/javascript" src="vendor/mustache.min.js"></script>
 	<!-- Add column template -->
 	<script id="column-template" type="x-tmpl-mustache">
 		<div class="column">
@@ -30,7 +32,6 @@
 		</div>
 	</script>
 	<!-- Java script alias -->
-	<script type="text/javascript" src="vendor/mustache.min.js"></script>
 	<script type="text/javascript" src="vendor/Sortable.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </body>
