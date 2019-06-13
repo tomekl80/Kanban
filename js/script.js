@@ -21,4 +21,13 @@ document.addEventListenes('DOMContentLoaded', function () {
 
 		return element;
 	}
+
+	// Column Class
+	function Column(name) {
+		var self = this;
+
+		this.id = randomString();
+		this.name = name;
+		this.element = generateTemplate('column-template', { name: this:name });
+	}
 })
