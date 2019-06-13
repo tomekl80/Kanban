@@ -1,4 +1,4 @@
-document.addEventListenes('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 	// Place for rest code of Trello
 
 	// Generation an ID for every card to eliminate duplicate
@@ -29,5 +29,15 @@ document.addEventListenes('DOMContentLoaded', function () {
 		this.id = randomString();
 		this.name = name;
 		this.element = generateTemplate('column-template', { name: this:name });
+
+		this.element.querySelector('.column').addEventListener('click', function (event) {
+			if (event.target.classList.contains('btn-delete')) {
+				self.removeColumn();
+			}
+
+			if (event.target.classList.contains('add-card')) {
+				self.addCard(new Card(prompt('Wprowadź nazwę karty')));
+			}
+		});
 	}
 })
