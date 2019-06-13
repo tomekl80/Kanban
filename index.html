@@ -10,7 +10,16 @@
 		<h1>Trello</h1>Dodaj kolumnę</button>
 		<div class="column-caontainer"></div>
 	</div>
-
+	
+	<!-- Add column template -->
+	<script id="column-template" type="x-tmpl-mustache">
+		<div class="column">
+			<h2 class="column-title">{{ name }}</h2>
+			<ul id={{ id }} class="column-card-list"></ul>
+			<button class="btn-delete">X</button>
+			<button class="add-card">X</button>
+		</div>
+	</script>
 	<!-- Java script alias -->
 	<script type="text/javascript" src="vendor/mustache.min.js"></script>
 	<script type="text/javascript" src="vendor/Sortable.min.js"></script>
